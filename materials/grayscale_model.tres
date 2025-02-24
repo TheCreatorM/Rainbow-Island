@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ca6g3v17sq82x"]
+
+[ext_resource type="Shader" uid="uid://jn8q48ama77i" path="res://materials/grayscale_model.gdshader" id="1_b073p"]
+[ext_resource type="Texture2D" uid="uid://fetod1pnjob3" path="res://assets/textures/Green/texture_05.png" id="2_k34e0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_b073p")
+shader_parameter/albedo_texture = ExtResource("2_k34e0")
+shader_parameter/gray_scale = 1.0
+shader_parameter/darkness = 0.0

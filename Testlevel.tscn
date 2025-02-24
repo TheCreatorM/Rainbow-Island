@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://ce5dcft3roews"]
+
+[ext_resource type="Material" uid="uid://ca6g3v17sq82x" path="res://materials/grayscale_model.tres" id="3_d7v27"]
+[ext_resource type="PackedScene" uid="uid://dgj5y58a2mixb" path="res://objects/tree.tscn" id="3_f8ecn"]
+[ext_resource type="PackedScene" uid="uid://b0sn6csi20brw" path="res://actors/player.tscn" id="8_v1t32"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0eu5f"]
+sky_top_color = Color(0.124988, 0.157468, 0.202637, 1)
+sky_horizon_color = Color(0.556619, 0.562346, 0.578134, 1)
+ground_bottom_color = Color(0.101486, 0.0919161, 0.109898, 1)
+ground_horizon_color = Color(0.556619, 0.562346, 0.578134, 1)
+
+[sub_resource type="Sky" id="Sky_f1qwf"]
+sky_material = SubResource("ProceduralSkyMaterial_0eu5f")
+
+[sub_resource type="Environment" id="Environment_mt7ri"]
+background_mode = 2
+sky = SubResource("Sky_f1qwf")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sw7kw"]
+material = ExtResource("3_d7v27")
+size = Vector2(20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_npq1m"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mt7ri")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 100.054, 67.5808)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0189734, 0.0294306, -0.000593901)
+mesh = SubResource("PlaneMesh_sw7kw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_npq1m")
+
+[node name="Player" parent="." instance=ExtResource("8_v1t32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.374824, 1.22369, -3.4992)
+
+[node name="Tree" parent="." instance=ExtResource("3_f8ecn")]
+transform = Transform3D(0.625583, 0, 0.780158, 0, 1, 0, -0.780158, 0, 0.625583, 4.22084, 3.27001, 4.45869)
+pixel_size = 0.1
