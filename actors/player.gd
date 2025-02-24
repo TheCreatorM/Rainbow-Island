@@ -4,13 +4,23 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENS = 0.002
+const COOLDOWN = 0.1
 
+@onready var gun = $Gun
+
+var t = 0.0
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _process(delta: float) -> void:
+	t -= delta
+	if t<=0.0:
+		t=0.0
 	if Input.is_action_just_pressed("ui_cancel"):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if Input.is_action_pressed("shoot") and t==0.0:
+			gun.play("gun")
+			t=COOLDOWN
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
