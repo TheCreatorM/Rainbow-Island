@@ -43,13 +43,11 @@ mesh = SubResource("PlaneMesh_sw7kw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_npq1m")
 
-[node name="Player" parent="." instance=ExtResource("8_v1t32")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("8_v1t32")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.374824, 1.22369, -3.4992)
 
 [node name="Tree" parent="." instance=ExtResource("3_f8ecn")]
 transform = Transform3D(0.625583, 0, 0.780158, 0, 1, 0, -0.780158, 0, 0.625583, 4.22084, 3.27001, 4.45869)
-pixel_size = 0.1
 
 [node name="Tree2" parent="." instance=ExtResource("3_f8ecn")]
 transform = Transform3D(0.852321, 0, -0.523019, 0, 1, 0, 0.523019, 0, 0.852321, -4.06398, 3.27001, 5.94271)
-pixel_size = 0.1

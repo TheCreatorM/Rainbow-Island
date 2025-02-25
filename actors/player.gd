@@ -4,9 +4,11 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENS = 0.002
-const COOLDOWN = 0.1
+const COOLDOWN = 0.66
 
 @onready var gun = $Gun
+@onready var root = get_tree().get_root().get_node("Node3D")
+@onready var projectile = load("res://actors/projectile.tscn")
 
 var t = 0.0
 func _ready() -> void:
@@ -20,6 +22,10 @@ func _process(delta: float) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_pressed("shoot") and t==0.0:
 			gun.play("gun")
+			var proj = projectile.instantiate()
+			proj.transform = global_transform
+			proj.velocity = -proj.transform.basis.z * 100
+			root.add_child.call_deferred(proj)
 			t=COOLDOWN
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

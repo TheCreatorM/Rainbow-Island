@@ -1,5 +1,7 @@
 extends Sprite3D
 
+@export var player: Node3D
+@onready var area: StaticBody3D = $Area3D
 var material : ShaderMaterial
 
 var grayscale : float = 1.0
@@ -16,8 +18,20 @@ func _ready() -> void:
 	material.set_shader_parameter("scale",20.0)
 	
 	material_override = material
+	player = get_tree().get_first_node_in_group("player")
 	
-func MakeColor() -> void:
+func _process(_delta: float) -> void:
+	# Get the position of the player
+	var target_position = player.global_transform.origin
+	
+	# Keep only the Y-axis rotation by setting Y to match the area
+	target_position.y = global_position.y
+	
+	# Make the area face the player along the Y-axis
+	area.look_at(target_position, Vector3.UP)
+
+	
+func hit() -> void:
 	if grayscale > 0:
 		Globals.grayness -= 1
 		grayscale -= 0.05
