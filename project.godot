@@ -74,6 +74,11 @@ shoot={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Projectile"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

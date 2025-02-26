@@ -37,7 +37,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["block"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0189734, 0.0294306, -0.000593901)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0189734, 0.0294306, -0.000593901)
 mesh = SubResource("PlaneMesh_sw7kw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
