@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ce5dcft3roews"]
+[gd_scene load_steps=10 format=3 uid="uid://ce5dcft3roews"]
 
+[ext_resource type="Script" path="res://world_environment.gd" id="1_ld73r"]
 [ext_resource type="Material" uid="uid://ca6g3v17sq82x" path="res://materials/grayscale_model.tres" id="3_d7v27"]
 [ext_resource type="PackedScene" uid="uid://dgj5y58a2mixb" path="res://objects/tree.tscn" id="3_f8ecn"]
 [ext_resource type="PackedScene" uid="uid://b0sn6csi20brw" path="res://actors/player.tscn" id="8_v1t32"]
@@ -29,12 +30,13 @@ data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0,
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mt7ri")
+script = ExtResource("1_ld73r")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 100.054, 67.5808)
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["block"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0189734, 0.0294306, -0.000593901)
 mesh = SubResource("PlaneMesh_sw7kw")
 
@@ -47,7 +49,7 @@ shape = SubResource("ConcavePolygonShape3D_npq1m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.374824, 1.22369, -3.4992)
 
 [node name="Tree" parent="." instance=ExtResource("3_f8ecn")]
-transform = Transform3D(0.625583, 0, 0.780158, 0, 1, 0, -0.780158, 0, 0.625583, 4.22084, 3.27001, 4.45869)
+transform = Transform3D(0.625583, 0, 0.780158, 0, 1, 0, -0.780158, 0, 0.625583, 4.22084, 2.16752, 4.45869)
 
 [node name="Tree2" parent="." instance=ExtResource("3_f8ecn")]
-transform = Transform3D(0.852321, 0, -0.523019, 0, 1, 0, 0.523019, 0, 0.852321, -4.06398, 3.27001, 5.94271)
+transform = Transform3D(0.852321, 0, -0.523019, 0, 1, 0, 0.523019, 0, 0.852321, -4.06398, 2.16752, 5.94271)

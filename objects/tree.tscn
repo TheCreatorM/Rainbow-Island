@@ -18,8 +18,7 @@ size = Vector3(8.76819, 6.15479, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ocqwp"]
 size = Vector3(1.75195, 3.98315, 1)
 
-[node name="Tree" type="Sprite3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Tree" type="Sprite3D" groups=["hit"]]
 material_override = SubResource("ShaderMaterial_qi42u")
 pixel_size = 0.1
 billboard = 2
@@ -29,7 +28,7 @@ region_enabled = true
 region_rect = Rect2(0, 20.6898, 45.5516, 43.3102)
 script = ExtResource("3_jelwg")
 
-[node name="Area3D" type="StaticBody3D" parent="." groups=["hit"]]
+[node name="Area3D" type="StaticBody3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]

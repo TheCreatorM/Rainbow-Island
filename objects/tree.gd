@@ -30,10 +30,10 @@ func _process(_delta: float) -> void:
 	# Make the area face the player along the Y-axis
 	area.look_at(target_position, Vector3.UP)
 
-	
-func hit() -> void:
-	if grayscale > 0:
-		Globals.grayness -= 1
-		grayscale -= 0.05
-		material_override.set_shader_parameter("gray_scale",grayscale)
-		print("make color " + str(grayscale))
+
+#func hit() -> void:
+	#if grayscale > 0:
+		#Globals.grayness -= 1
+		#grayscale -= 0.05
+		#material_override.set_shader_parameter("gray_scale",grayscale)
+		#print("make color " + str(grayscale))

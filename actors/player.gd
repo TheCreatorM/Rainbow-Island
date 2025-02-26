@@ -9,7 +9,9 @@ const COOLDOWN = 0.66
 @onready var gun = $Gun
 @onready var root = get_tree().get_root().get_node("Node3D")
 @onready var projectile = load("res://actors/projectile.tscn")
+@onready var cam = $Camera3D
 
+var sliding = false
 var t = 0.0
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -27,11 +29,24 @@ func _process(delta: float) -> void:
 			proj.velocity = -proj.transform.basis.z * 100
 			root.add_child.call_deferred(proj)
 			t=COOLDOWN
+	
+	if Input.is_action_pressed("crouch"):
+		if Input.is_action_pressed("sprint"):
+			sliding = true
+			cam.position.y = -0.2
+		else:
+			cam.position.y = 0.0
+			sliding = false
+
+	else:
+		cam.position.y = 0.5
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			rotation.x -=event.relative.y * MOUSE_SENS
 			rotation.y -=event.relative.x * MOUSE_SENS
+			
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -48,6 +63,12 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	if Input.is_action_pressed("sprint"):
 		speed_mult*=2
+
+	if sliding:
+		speed_mult *= 1.5  # Adjust sliding speed as needed
+		velocity.x *= 0.95  # Apply gradual deceleration
+		velocity.z *= 0.95
+		
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED * speed_mult
