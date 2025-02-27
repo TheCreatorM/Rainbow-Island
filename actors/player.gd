@@ -3,6 +3,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENS = 0.002
+const PROJECTILE_SPEED = 50
 const COOLDOWN = 0.66
 const DASH_FORCE = 40.0  # Horizontal dash speed
 const DASH_VERTICAL_REDUCTION = 0.2  # Reduce vertical influence
@@ -36,9 +37,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("shoot") and t == 0.0:
 		gun.play("gun")
 		var proj = projectile.instantiate()
-		proj.transform = global_transform
-		proj.velocity = -proj.transform.basis.z * 100
-		root.add_child.call_deferred(proj)
+		proj.transform = global_transform.translated(Vector3(0.0,0.5,0.0))
+		proj.velocity = -proj.transform.basis.z * PROJECTILE_SPEED
+		root.add_child(proj)
 		t = COOLDOWN
 
 func _unhandled_input(event: InputEvent) -> void:

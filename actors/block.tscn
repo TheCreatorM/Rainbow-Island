@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://crlgt3xqyppje"]
+
+[ext_resource type="Material" uid="uid://ca6g3v17sq82x" path="res://materials/grayscale_model.tres" id="1_rdrrt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fubar"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mhlj"]
+
+[node name="Block" type="MeshInstance3D" groups=["block"]]
+material_override = ExtResource("1_rdrrt")
+mesh = SubResource("BoxMesh_fubar")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_8mhlj")
