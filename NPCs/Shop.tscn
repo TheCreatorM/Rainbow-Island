@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0r0pcahj4ci6"]
+
+[ext_resource type="Texture2D" uid="uid://bffu7xc4e6hml" path="res://assets/shop/shop.png" id="1_ek1ht"]
+[ext_resource type="Script" path="res://NPCs/shop.gd" id="1_rlo71"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8tbk5"]
+radius = 4.60609
+
+[node name="Shop" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.97478, 0)
+texture = ExtResource("1_ek1ht")
+script = ExtResource("1_rlo71")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.04155, 0)
+shape = SubResource("SphereShape3D_8tbk5")
+
+[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]

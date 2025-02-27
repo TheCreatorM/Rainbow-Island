@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("shoot") and t == 0.0:
 		gun.play("gun")
 		var proj =projectile.instantiate()
-		proj.transform = global_transform.translated(Vector3(0.0,0.5,0.0))
+		proj.transform = global_transform.translated(Vector3(0.0,0.5,0.0)).translated(-global_transform.basis.z )
 		proj.velocity = -proj.transform.basis.z * PROJECTILE_SPEED
 		root.add_child(proj)
 		t = COOLDOWN

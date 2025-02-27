@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ce5dcft3roews"]
+[gd_scene load_steps=13 format=3 uid="uid://ce5dcft3roews"]
 
 [ext_resource type="Material" uid="uid://ca6g3v17sq82x" path="res://materials/grayscale_model.tres" id="3_d7v27"]
 [ext_resource type="PackedScene" uid="uid://dgj5y58a2mixb" path="res://Props/tree.tscn" id="3_f8ecn"]
 [ext_resource type="PackedScene" uid="uid://crlgt3xqyppje" path="res://Props/block.tscn" id="5_dc7fb"]
 [ext_resource type="PackedScene" uid="uid://fh6ga7mkbgjj" path="res://GUIs/gui.tscn" id="6_4no34"]
 [ext_resource type="PackedScene" uid="uid://de53btide62j4" path="res://Props/Jumper.tscn" id="6_cfb1o"]
+[ext_resource type="PackedScene" uid="uid://d0r0pcahj4ci6" path="res://NPCs/Shop.tscn" id="7_48bgq"]
 [ext_resource type="PackedScene" uid="uid://b0sn6csi20brw" path="res://Player/player.tscn" id="8_v1t32"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0eu5f"]
@@ -73,3 +74,6 @@ transform = Transform3D(-1.31134e-06, 0, -10, 0, 5, 0, 30, 0, -4.37114e-07, -0.6
 
 [node name="Jumper" parent="." instance=ExtResource("6_cfb1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -3)
+
+[node name="Shop" parent="." instance=ExtResource("7_48bgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4.97478, 12)
