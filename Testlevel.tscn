@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://ce5dcft3roews"]
 
-[ext_resource type="Script" path="res://world_environment.gd" id="1_ld73r"]
 [ext_resource type="Material" uid="uid://ca6g3v17sq82x" path="res://materials/grayscale_model.tres" id="3_d7v27"]
-[ext_resource type="PackedScene" uid="uid://dgj5y58a2mixb" path="res://objects/tree.tscn" id="3_f8ecn"]
-[ext_resource type="PackedScene" uid="uid://crlgt3xqyppje" path="res://actors/block.tscn" id="5_dc7fb"]
-[ext_resource type="PackedScene" uid="uid://fh6ga7mkbgjj" path="res://actors/gui.tscn" id="6_4no34"]
-[ext_resource type="PackedScene" uid="uid://b0sn6csi20brw" path="res://actors/player.tscn" id="8_v1t32"]
+[ext_resource type="PackedScene" uid="uid://dgj5y58a2mixb" path="res://Props/tree.tscn" id="3_f8ecn"]
+[ext_resource type="PackedScene" uid="uid://crlgt3xqyppje" path="res://Props/block.tscn" id="5_dc7fb"]
+[ext_resource type="PackedScene" uid="uid://fh6ga7mkbgjj" path="res://GUIs/gui.tscn" id="6_4no34"]
+[ext_resource type="PackedScene" uid="uid://de53btide62j4" path="res://Props/Jumper.tscn" id="6_cfb1o"]
+[ext_resource type="PackedScene" uid="uid://b0sn6csi20brw" path="res://Player/player.tscn" id="8_v1t32"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0eu5f"]
 sky_top_color = Color(0.124988, 0.157468, 0.202637, 1)
@@ -32,7 +32,6 @@ data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0,
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mt7ri")
-script = ExtResource("1_ld73r")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 100.054, 67.5808)
@@ -71,3 +70,6 @@ transform = Transform3D(30, 0, 0, 0, 5, 0, 0, 0, 10, -20.9361, 1.8414, -10.7774)
 transform = Transform3D(-1.31134e-06, 0, -10, 0, 5, 0, 30, 0, -4.37114e-07, -0.603282, 1.8414, -0.786788)
 
 [node name="GUI" parent="." instance=ExtResource("6_4no34")]
+
+[node name="Jumper" parent="." instance=ExtResource("6_cfb1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -3)

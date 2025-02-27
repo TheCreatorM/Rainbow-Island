@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgsd7ahtcscyy"
-path.s3tc="res://.godot/imported/gun4.png-1c9896018e5c856a167abb1804744975.s3tc.ctex"
+uid="uid://b5x2mbh07xi0h"
+path.s3tc="res://.godot/imported/Jumper_sprite_sheet.png-458d269fc35b9fe8fe4775d396ef9620.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/player/gun4.png"
-dest_files=["res://.godot/imported/gun4.png-1c9896018e5c856a167abb1804744975.s3tc.ctex"]
+source_file="res://assets/props/Jumper_sprite_sheet.png"
+dest_files=["res://.godot/imported/Jumper_sprite_sheet.png-458d269fc35b9fe8fe4775d396ef9620.s3tc.ctex"]
 
 [params]
 

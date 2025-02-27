@@ -6,8 +6,6 @@ var material : ShaderMaterial
 
 var grayscale : float = 1.0
 
-const MUZZLE = preload("res://effects/particles/muzzle.tscn")
-
 var tex : CompressedTexture2D = preload("res://assets/trees/Apple_Tree.png")
 var shad : Shader = preload("res://materials/grayscale_2d.gdshader")
 

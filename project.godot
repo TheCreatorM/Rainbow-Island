@@ -15,10 +15,6 @@ run/main_scene="res://Testlevel.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Globals="*res://globals/globals.gd"
-
 [display]
 
 window/size/viewport_width=1920
@@ -30,6 +26,7 @@ window/vsync/vsync_mode=0
 hit="objects that can be hit, on hit calls hit() function"
 player=""
 block=""
+jumper=""
 
 [input]
 

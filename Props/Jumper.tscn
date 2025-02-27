@@ -1,0 +1,107 @@
+[gd_scene load_steps=16 format=3 uid="uid://de53btide62j4"]
+
+[ext_resource type="Script" path="res://Props/jumper.gd" id="1_4dpv4"]
+[ext_resource type="Texture2D" uid="uid://b5x2mbh07xi0h" path="res://assets/props/Jumper_sprite_sheet.png" id="1_kpao2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkfox"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(0, 0, 140, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvcv2"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(140, 0, 140, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viuqj"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(280, 0, 140, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1131"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(420, 0, 140, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fvtu"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(560, 0, 140, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj3uy"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(700, 0, 140, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0hl5"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(840, 0, 140, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trrql"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(0, 140, 140, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ohfw"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(140, 140, 140, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oghrx"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(280, 140, 140, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhjkw"]
+atlas = ExtResource("1_kpao2")
+region = Rect2(420, 140, 140, 140)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bi3ap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkfox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvcv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viuqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1131")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fvtu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj3uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0hl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trrql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ohfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oghrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhjkw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ln001"]
+radius = 0.517173
+
+[node name="Jumper" type="AnimatedSprite3D" groups=["jumper"]]
+sprite_frames = SubResource("SpriteFrames_bi3ap")
+frame_progress = 0.788251
+script = ExtResource("1_4dpv4")
+
+[node name="Jumper" type="Area3D" parent="." groups=["jumper"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Jumper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.232084, 0)
+shape = SubResource("SphereShape3D_ln001")
+
+[connection signal="body_shape_entered" from="Jumper" to="." method="_on_jumper_body_shape_entered"]

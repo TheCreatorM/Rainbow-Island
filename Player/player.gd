@@ -10,7 +10,7 @@ const DASH_VERTICAL_REDUCTION = 0.2  # Reduce vertical influence
 
 @onready var gun = $Gun
 @onready var root = get_tree().get_root().get_node("Node3D")
-@onready var projectile = load("res://actors/projectile.tscn")
+@onready var projectile = load("res://Player/projectile.tscn")
 @onready var cam = $Camera3D
 
 var sliding = false
@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 	# Shooting logic with cooldown
 	if Input.is_action_pressed("shoot") and t == 0.0:
 		gun.play("gun")
-		var proj = projectile.instantiate()
+		var proj =projectile.instantiate()
 		proj.transform = global_transform.translated(Vector3(0.0,0.5,0.0))
 		proj.velocity = -proj.transform.basis.z * PROJECTILE_SPEED
 		root.add_child(proj)
