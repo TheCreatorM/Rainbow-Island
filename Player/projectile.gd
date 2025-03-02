@@ -13,6 +13,10 @@ func _on_hit(body: Node3D) -> void:
 		if par.has_method("hit"):
 			par.hit()
 		queue_free()
+	if body.is_in_group("hit"):
+		if body.has_method("hit"):
+			body.hit()
+		queue_free()
 	if par.is_in_group("block"):
 		#var mat = par.mesh.material
 		#mat.set_shader_parameter("gray_scale",mat.get_shader_parameter("gray_scale")-0.1)

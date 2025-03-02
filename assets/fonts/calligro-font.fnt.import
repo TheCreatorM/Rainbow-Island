@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://rpkh4enaipsq"
+path="res://.godot/imported/calligro-font.fnt-51484c0b888ebf9de2433f5f60105f58.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/calligro-font.fnt"
+dest_files=["res://.godot/imported/calligro-font.fnt-51484c0b888ebf9de2433f5f60105f58.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

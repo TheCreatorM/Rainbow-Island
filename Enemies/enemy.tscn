@@ -1,0 +1,114 @@
+[gd_scene load_steps=12 format=3 uid="uid://dedrnedhb436c"]
+
+[ext_resource type="Texture2D" uid="uid://bfrkj6t7nx7pb" path="res://assets/enemies/enemy.png" id="1_dm7gf"]
+[ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_urbyp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpg2h"]
+atlas = ExtResource("1_dm7gf")
+region = Rect2(0, 0, 535, 860)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ygr5"]
+atlas = ExtResource("1_dm7gf")
+region = Rect2(535, 0, 535, 860)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrhpe"]
+atlas = ExtResource("1_dm7gf")
+region = Rect2(0, 860, 535, 860)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hl2l"]
+atlas = ExtResource("1_dm7gf")
+region = Rect2(535, 860, 535, 860)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1abd2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpg2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ygr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrhpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hl2l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vvgv"]
+bg_color = Color(0.6, 0.6, 0.6, 0.180392)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg3l6"]
+bg_color = Color(0.941176, 0.0470588, 0.0784314, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_dana1"]
+font_size = 30
+outline_size = 5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x5fg8"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Enemy" type="CharacterBody3D" groups=["hit"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_urbyp")
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+double_sided = false
+sprite_frames = SubResource("SpriteFrames_1abd2")
+frame_progress = 0.21523
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+polygon = PackedVector2Array(-0.392558, 4.15397, 1.26892, 4.24027, 1.31111, 3.71402, 0.961812, 3.01242, 0.973152, 2.66797, 1.11625, 2.49356, 1.03959, 2.29842, 0.973573, 2.20192, 0.930964, 0.367071, 1.5107, 0.0986662, 1.80064, -0.240858, 1.71564, -0.460843, 2.66062, -1.86826, 2.56979, -2.49849, 2.08072, -2.72484, 1.78326, -2.53512, 1.79269, -1.80906, 1.2514, -0.921339, 0.966725, -2.49467, 0.416524, -3.01509, 0.348392, -3.93108, -0.812294, -4.08217, -0.799298, -2.9826, -1.59276, -2.48953, -2.41492, -2.53469, -2.34395, 0.210837, -1.76182, 0.516735, -1.86982, 2.86182, -2.09724, 4.16844)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(250, 40)
+
+[node name="TextureProgressBar" type="ProgressBar" parent="SubViewport"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3vvgv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cg3l6")
+max_value = 50.0
+value = 25.0
+rounded = true
+show_percentage = false
+
+[node name="Label" type="Label" parent="SubViewport"]
+layout_direction = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_right = 187.0
+offset_bottom = 42.0
+grow_horizontal = 2
+text = "asdf/asdf"
+label_settings = SubResource("LabelSettings_dana1")
+
+[node name="Helth" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.337193, 4.586, 0)
+billboard = 2
+texture = SubResource("ViewportTexture_x5fg8")

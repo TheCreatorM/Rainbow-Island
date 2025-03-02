@@ -92,6 +92,8 @@ animations = [{
 radius = 0.517173
 
 [node name="Jumper" type="AnimatedSprite3D" groups=["jumper"]]
+billboard = 2
+double_sided = false
 sprite_frames = SubResource("SpriteFrames_bi3ap")
 frame_progress = 0.788251
 script = ExtResource("1_4dpv4")
