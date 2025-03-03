@@ -8,10 +8,17 @@ const COOLDOWN = 0.66
 const DASH_FORCE = 40.0  # Horizontal dash speed
 const DASH_VERTICAL_REDUCTION = 0.2  # Reduce vertical influence
 
+const MAX_HEALTH = 100
+
 @onready var gun = $Gun
 @onready var root = get_tree().get_root().get_node("Node3D")
 @onready var projectile = load("res://Player/projectile.tscn")
 @onready var cam = $Camera3D
+
+@onready var healthbar = $GUI/Panel/ProgressBar
+@onready var healthtxt = $GUI/Panel/ProgressBar/Label
+
+var health = 0
 
 var sliding = false
 var dashing = false
@@ -20,6 +27,8 @@ var t = 0.0  # Shooting cooldown
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	health = MAX_HEALTH
+	update_health()
 	
 func _process(delta: float) -> void:
 	# Update cooldown timers
@@ -39,6 +48,7 @@ func _process(delta: float) -> void:
 		var proj =projectile.instantiate()
 		proj.transform = global_transform.translated(Vector3(0.0,0.5,0.0)).translated(-global_transform.basis.z )
 		proj.velocity = -proj.transform.basis.z * PROJECTILE_SPEED
+		proj.set_collision_mask_value(2,true)
 		root.add_child(proj)
 		t = COOLDOWN
 
@@ -100,3 +110,11 @@ func _physics_process(delta: float) -> void:
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+func hit():
+	health -= 5
+	update_health()
+	
+func update_health():
+	healthbar.value = health
+	healthtxt.text = str(health) + " / " + str(MAX_HEALTH)

@@ -27,6 +27,7 @@ hit="objects that can be hit, on hit calls hit() function"
 player=""
 block=""
 jumper=""
+enemy=""
 
 [input]
 
@@ -73,8 +74,9 @@ shoot={
 
 [layer_names]
 
-3d_physics/layer_1="Player"
-3d_physics/layer_2="Projectile"
+3d_physics/layer_1="Blocks"
+3d_physics/layer_2="Enemies and other hittable"
+3d_physics/layer_3="Player"
 
 [rendering]
 

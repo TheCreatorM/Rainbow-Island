@@ -2,6 +2,7 @@ extends Sprite3D
 
 var dialogues
 var dialogueBox = load("res://GUIs/DialogueBox.tscn")
+@onready var gui = $GUI
 
 func _ready() -> void:
 	var file_access := FileAccess.open("res://Dialogues/test_dialogue.json", FileAccess.READ)
@@ -18,6 +19,5 @@ func _process(delta: float) -> void:
 func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("player"):
 		var dial = dialogueBox.instantiate()
-		set_process_input(false)
-		dial.update_dialogue(dialogues)
+		dial.start_dialogue(dialogues, gui)
 		get_tree().get_root().get_node("Node3D").add_child(dial)

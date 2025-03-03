@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://fh6ga7mkbgjj"]
+[gd_scene load_steps=4 format=3 uid="uid://fh6ga7mkbgjj"]
 
 [ext_resource type="Texture2D" uid="uid://d1s36x73vnpg3" path="res://assets/particles/magic_03.png" id="1_h5stc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1cmf"]
+bg_color = Color(0.6, 0.6, 0.6, 0.345098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0bds"]
+bg_color = Color(1, 0.0627451, 0.0666667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -27,3 +41,46 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_h5stc")
 stretch_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -396.0
+offset_top = -89.0
+offset_right = 398.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -8.5
+offset_right = 372.0
+offset_bottom = 27.5
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_a1cmf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b0bds")
+show_percentage = false
+
+[node name="Label" type="Label" parent="Panel/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "50 / 50"
