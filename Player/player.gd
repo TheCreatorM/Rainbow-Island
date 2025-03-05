@@ -3,16 +3,13 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENS = 0.002
-const PROJECTILE_SPEED = 50
+
 const COOLDOWN = 0.66
 const DASH_FORCE = 40.0  # Horizontal dash speed
 const DASH_VERTICAL_REDUCTION = 0.2  # Reduce vertical influence
 
-const MAX_HEALTH = 100
+const MAX_HEALTH = 50
 
-@onready var gun = $Gun
-@onready var root = get_tree().get_root().get_node("Node3D")
-@onready var projectile = load("res://Player/projectile.tscn")
 @onready var cam = $Camera3D
 
 @onready var healthbar = $GUI/Panel/ProgressBar
@@ -23,34 +20,28 @@ var health = 0
 var sliding = false
 var dashing = false
 var dash_cooldown = 0.0
-var t = 0.0  # Shooting cooldown
+
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = MAX_HEALTH
+	healthbar.max_value = MAX_HEALTH
 	update_health()
 	
 func _process(delta: float) -> void:
 	# Update cooldown timers
-	t -= delta
+
 	dash_cooldown -= delta
 	
 	# Clamp cooldown timers
-	t = max(t, 0.0)
+
 	dash_cooldown = max(dash_cooldown, 0.0)
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	# Shooting logic with cooldown
-	if Input.is_action_pressed("shoot") and t == 0.0:
-		gun.play("gun")
-		var proj =projectile.instantiate()
-		proj.transform = global_transform.translated(Vector3(0.0,0.5,0.0)).translated(-global_transform.basis.z )
-		proj.velocity = -proj.transform.basis.z * PROJECTILE_SPEED
-		proj.set_collision_mask_value(2,true)
-		root.add_child(proj)
-		t = COOLDOWN
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -111,8 +102,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-func hit():
-	health -= 5
+func hit(damage: int):
+	health -= damage
 	update_health()
 	
 func update_health():

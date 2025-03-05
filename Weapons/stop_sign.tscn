@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4k650wsq4fn"]
+
+[ext_resource type="Texture2D" uid="uid://cj0ge1r1jh0lv" path="res://assets/weapons/stop.png" id="1_e3hw0"]
+[ext_resource type="Script" path="res://Weapons/stop_sign.gd" id="1_w5bdp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4bri"]
+atlas = ExtResource("1_e3hw0")
+region = Rect2(150, 150, 800, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrksa"]
+atlas = ExtResource("1_e3hw0")
+region = Rect2(950, 150, 800, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elnop"]
+atlas = ExtResource("1_e3hw0")
+region = Rect2(1750, 150, 800, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fowma"]
+atlas = ExtResource("1_e3hw0")
+region = Rect2(150, 850, 800, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88sxl"]
+atlas = ExtResource("1_e3hw0")
+region = Rect2(950, 850, 800, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rovga"]
+atlas = ExtResource("1_e3hw0")
+region = Rect2(1750, 850, 800, 700)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5c0jb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4bri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrksa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elnop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fowma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88sxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rovga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rovga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elnop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4bri")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13202, 0.409115, -1.31)
+pixel_size = 0.003
+sprite_frames = SubResource("SpriteFrames_5c0jb")
+frame = 8
+frame_progress = 1.0
+script = ExtResource("1_w5bdp")
