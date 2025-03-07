@@ -38,12 +38,13 @@ func update_dialogue():
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
+	Global.ui_stack.append(self)
 func _process(delta: float) -> void:
 	t-=delta
 	if t<0:
 		t=0
 	if not optioned:
-		if (Input.is_anything_pressed() || Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) && t<=0:
+		if (Input.is_anything_pressed() || Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) && t<=0 && not Input.is_action_pressed("ui_cancel"):
 			if n>=len(dialogue):
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 				get_tree().paused = false
@@ -55,6 +56,8 @@ func _on_option_1_pressed() -> void:
 	n = dialogue[n-1].next1
 	if n == -2:
 		gui.visible = true
+		Global.ui_stack.append(gui)
+		Global.ui_stack.remove_at(Global.ui_stack.find(self))
 		queue_free()
 	elif n>=len(dialogue) || n < 0:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -68,6 +71,9 @@ func _on_option_2_pressed() -> void:
 	n = dialogue[n-1].next2
 	if n == -2:
 		gui.visible = true
+		Global.ui_stack.append(gui)
+		Global.ui_stack.remove_at(Global.ui_stack.find(self))
+		queue_free()
 	elif n>=len(dialogue) || n < 0:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		get_tree().paused = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7sgeyda38y6r"]
+[gd_scene load_steps=10 format=3 uid="uid://b7sgeyda38y6r"]
 
 [ext_resource type="Texture2D" uid="uid://csp57ijff71r" path="res://assets/weapons/gun2.png" id="1_2hh40"]
 [ext_resource type="Texture2D" uid="uid://cdytoglet6xhk" path="res://assets/weapons/gun3.png" id="2_61f4r"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://busn3utph17yu" path="res://assets/weapons/gun6.png" id="5_q43r1"]
 [ext_resource type="Texture2D" uid="uid://dlx8ibmwpq7y1" path="res://assets/weapons/gun1.png" id="6_lmuis"]
 [ext_resource type="Script" path="res://Weapons/gun.gd" id="7_ay48y"]
+[ext_resource type="PackedScene" uid="uid://hvia6fxmvaxv" path="res://Weapons/projectile.tscn" id="8_hlt6v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wea10"]
 animations = [{
@@ -31,7 +32,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"gun",
-"speed": 15.0
+"speed": 25.0
 }]
 
 [node name="Gun" type="AnimatedSprite3D"]
@@ -39,4 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, 0, -1.205)
 pixel_size = 0.0025
 sprite_frames = SubResource("SpriteFrames_wea10")
 animation = &"gun"
+frame = 5
+frame_progress = 1.0
 script = ExtResource("7_ay48y")
+projectile = ExtResource("8_hlt6v")

@@ -59,7 +59,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 10.0
+"speed": 20.0
 }]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D"]
@@ -69,3 +69,4 @@ sprite_frames = SubResource("SpriteFrames_5c0jb")
 frame = 8
 frame_progress = 1.0
 script = ExtResource("1_w5bdp")
+cooldown = 0.25

@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const SPEED: float = 2.0
 const COOLDOWN = 2.0
-const PROJECTILE_SPEED = 50
+const PROJECTILE_SPEED = 25
 const MAX_HEALTH = 30
 
 var player

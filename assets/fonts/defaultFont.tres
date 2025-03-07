@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cr8biiptghdcp"]
+
+[ext_resource type="FontFile" uid="uid://cxvunuhh3ye4u" path="res://assets/fonts/Alaqua.otf" id="1_mwetj"]
+
+[resource]
+font = ExtResource("1_mwetj")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 0)
