@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0r0pcahj4ci6"]
+
+[ext_resource type="Texture2D" uid="uid://bffu7xc4e6hml" path="res://assets/shop/shop.png" id="1_ek1ht"]
+[ext_resource type="Script" path="res://NPCs/shop.gd" id="1_rlo71"]
+[ext_resource type="Texture2D" uid="uid://dlokanqt5dt50" path="res://assets/shop/Edward_back.png" id="3_2b0xr"]
+[ext_resource type="Texture2D" uid="uid://cqmvnsojny31y" path="res://assets/shop/Edward_shop_gui.png" id="4_rhkdo"]
+[ext_resource type="LabelSettings" uid="uid://cr8biiptghdcp" path="res://assets/fonts/defaultFont.tres" id="5_d6sis"]
+[ext_resource type="LabelSettings" uid="uid://conor6ing8616" path="res://assets/fonts/defaultFontWhite.tres" id="6_wwc3y"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8tbk5"]
+radius = 4.60609
+
+[node name="Shop" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.97478, 0)
+double_sided = false
+texture = ExtResource("1_ek1ht")
+script = ExtResource("1_rlo71")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.04155, 0)
+shape = SubResource("SphereShape3D_8tbk5")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+double_sided = false
+texture = ExtResource("3_2b0xr")
+
+[node name="GUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Panel" type="Panel" parent="GUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopBack" type="TextureRect" parent="GUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -557.0
+offset_top = -540.0
+offset_right = 523.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rhkdo")
+
+[node name="Quote" type="Label" parent="GUI/ShopBack"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -286.0
+offset_top = -457.0
+offset_right = -136.0
+offset_bottom = -239.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Greetings foreigner"
+label_settings = ExtResource("5_d6sis")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Items" type="GridContainer" parent="GUI/ShopBack"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.0
+offset_top = -305.0
+offset_right = 461.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Price" type="Label" parent="GUI/ShopBack"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 166.0
+offset_top = -171.0
+offset_right = 433.0
+offset_bottom = -108.0
+grow_vertical = 0
+label_settings = ExtResource("5_d6sis")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tooltip" type="Label" parent="GUI/ShopBack"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 155.0
+offset_top = 256.0
+offset_right = 483.0
+offset_bottom = 340.0
+grow_vertical = 2
+label_settings = ExtResource("6_wwc3y")
+autowrap_mode = 3
+
+[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]

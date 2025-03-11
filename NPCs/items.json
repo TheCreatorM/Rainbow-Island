@@ -1,0 +1,31 @@
+
+[
+	{
+		"id": 0,
+		"name":"Ketchup",
+		"price": 15,
+		"quote": "It gives a kick. If only it also gived fire.",
+		"tooltip": "makes you faster"
+	},
+	{
+		"id": 1,
+		"name":"Bricks",
+		"price": 45,
+		"quote": "For building, right?",
+		"tooltip": "Yeet"
+	},
+	{
+		"id": 2,
+		"name":"Strawberries",
+		"price": 13,
+		"quote": "You buy them very often. One kilogram as well?",
+		"tooltip":"heal you 5 hp (they're Omar's fav food)"
+	},
+	{
+		"id": 3,
+		"name":"Flag",
+		"price": 12,
+		"quote": "Let it wave proudly or something.",
+		"tooltip": "you can place it down :3"
+	},
+]

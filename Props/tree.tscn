@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgj5y58a2mixb"]
+
+[ext_resource type="Shader" path="res://materials/grayscale_2d.gdshader" id="1_d8ko4"]
+[ext_resource type="Texture2D" uid="uid://c320u1qi24m43" path="res://assets/trees/Apple_Tree.png" id="2_jelwg"]
+[ext_resource type="Script" path="res://Props/tree.gd" id="3_jelwg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qi42u"]
+render_priority = 0
+shader = ExtResource("1_d8ko4")
+shader_parameter/gray_scale = 1.0
+shader_parameter/darkness = 1.0
+shader_parameter/scale = 20.0
+shader_parameter/albedo_texture = ExtResource("2_jelwg")
+
+[node name="Tree" type="Sprite3D" groups=["hit"]]
+material_override = SubResource("ShaderMaterial_qi42u")
+pixel_size = 0.1
+billboard = 2
+double_sided = false
+texture = ExtResource("2_jelwg")
+region_enabled = true
+region_rect = Rect2(0, 20.6898, 45.5516, 43.3102)
+script = ExtResource("3_jelwg")
+
+[node name="Area3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 6
+collision_mask = 0
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D"]
+polygon = PackedVector2Array(0.0998286, 4.01529, 0.945714, 4.02474, 1.11545, 3.88412, 1.45747, 3.74817, 1.59596, 3.54582, 1.98228, 3.48744, 2.27885, 3.48683, 2.52266, 3.33417, 2.80342, 3.01805, 3.38809, 3.00851, 3.45585, 2.48372, 3.58209, 2.49384, 3.63167, 1.7149, 3.98172, 1.71488, 4.07279, 1.46682, 4.3386, 1.39039, 4.26363, 0.906552, 4.40762, -0.647582, 3.54021, -1.2616, 2.63917, -1.7412, 1.08076, -1.90314, 0.836931, -2.27604, 0.876888, -3.52531, 1.18301, -3.94242, 0.805882, -4.08146, -0.361087, -4.06385, -0.409895, -2.23238, -0.614838, -2.16319, -0.547974, -1.6663, -1.19462, -1.94494, -1.61224, -2.04338, -1.31069, -1.52641, -2.09439, -1.20616, -3.00243, -1.40558, -3.61459, -1.515, -3.90627, -1.3903, -3.91626, 0.192767, -4.24894, 0.557231, -4.27561, 1.25702, -2.90807, 2.79486, -1.89218, 3.63823, -0.984835, 3.8202, 0.107733, 3.97071)

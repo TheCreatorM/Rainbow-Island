@@ -1,0 +1,16 @@
+{
+ "dialogues": [
+	 {
+		"speaker": "NPC",
+		"text": "Hello, how can I help you?",
+		"option1": "Skibidi",
+		"next1" : -2,
+		"option2": "Toilet",
+		"next2" : -1
+	 },
+	 {
+		"speaker": "Player",
+		"text": "I need some information."
+	 },
+ ]
+} 
