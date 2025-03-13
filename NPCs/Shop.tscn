@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0r0pcahj4ci6"]
 
 [ext_resource type="Texture2D" uid="uid://bffu7xc4e6hml" path="res://assets/shop/shop.png" id="1_ek1ht"]
-[ext_resource type="Script" path="res://NPCs/shop.gd" id="1_rlo71"]
+[ext_resource type="Script" uid="uid://bx4ucoku1qm04" path="res://NPCs/shop.gd" id="1_rlo71"]
 [ext_resource type="Texture2D" uid="uid://dlokanqt5dt50" path="res://assets/shop/Edward_back.png" id="3_2b0xr"]
 [ext_resource type="Texture2D" uid="uid://cqmvnsojny31y" path="res://assets/shop/Edward_shop_gui.png" id="4_rhkdo"]
 [ext_resource type="LabelSettings" uid="uid://cr8biiptghdcp" path="res://assets/fonts/defaultFont.tres" id="5_d6sis"]

@@ -46,7 +46,9 @@ func _process(_delta: float) -> void:
 	
 func _physics_process(delta):
 	if player:
-		var direction = (player.global_position - global_position).normalized()
+		var direction = (player.global_position - global_position)
+		direction.y = 0
+		direction = direction.normalized()
 		velocity = direction * SPEED
 		move_and_slide()
 

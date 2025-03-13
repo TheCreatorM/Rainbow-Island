@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0sn6csi20brw"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_2pq4x"]
-[ext_resource type="Script" path="res://Player/weapons.gd" id="3_5cwyi"]
+[ext_resource type="Script" uid="uid://dnc7cddu5e5nr" path="res://Player/player.gd" id="1_2pq4x"]
+[ext_resource type="Script" uid="uid://cdg5f70aktqhh" path="res://Player/weapons.gd" id="3_5cwyi"]
 [ext_resource type="PackedScene" uid="uid://fh6ga7mkbgjj" path="res://GUIs/gui.tscn" id="8_wclgf"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1imt5"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0rb0axn08c57"]
+
+[ext_resource type="Texture2D" uid="uid://dafwskudgv00i" path="res://assets/textures/Brick_path.png" id="1_86opd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86opd"]
+albedo_texture = ExtResource("1_86opd")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_t2s4x"]
+material = SubResource("StandardMaterial3D_86opd")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mhlj"]
+
+[node name="Path" type="MeshInstance3D" groups=["block"]]
+transform = Transform3D(2.94429, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_t2s4x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_8mhlj")

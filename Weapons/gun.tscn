@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d34bxqiqn3px2" path="res://assets/weapons/gun5.png" id="4_vajmd"]
 [ext_resource type="Texture2D" uid="uid://busn3utph17yu" path="res://assets/weapons/gun6.png" id="5_q43r1"]
 [ext_resource type="Texture2D" uid="uid://dlx8ibmwpq7y1" path="res://assets/weapons/gun1.png" id="6_lmuis"]
-[ext_resource type="Script" path="res://Weapons/gun.gd" id="7_ay48y"]
+[ext_resource type="Script" uid="uid://bn6qps8tf5tnp" path="res://Weapons/gun.gd" id="7_ay48y"]
 [ext_resource type="PackedScene" uid="uid://hvia6fxmvaxv" path="res://Weapons/projectile.tscn" id="8_hlt6v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wea10"]

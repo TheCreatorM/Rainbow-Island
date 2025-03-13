@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgj5y58a2mixb"]
 
-[ext_resource type="Shader" path="res://materials/grayscale_2d.gdshader" id="1_d8ko4"]
+[ext_resource type="Shader" uid="uid://cv1wqdl3t442w" path="res://materials/grayscale_2d.gdshader" id="1_d8ko4"]
 [ext_resource type="Texture2D" uid="uid://c320u1qi24m43" path="res://assets/trees/Apple_Tree.png" id="2_jelwg"]
-[ext_resource type="Script" path="res://Props/tree.gd" id="3_jelwg"]
+[ext_resource type="Script" uid="uid://dseev3rqkabc2" path="res://Props/tree.gd" id="3_jelwg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qi42u"]
 render_priority = 0
 shader = ExtResource("1_d8ko4")
+shader_parameter/albedo_texture = ExtResource("2_jelwg")
 shader_parameter/gray_scale = 1.0
 shader_parameter/darkness = 1.0
 shader_parameter/scale = 20.0
-shader_parameter/albedo_texture = ExtResource("2_jelwg")
 
 [node name="Tree" type="Sprite3D" groups=["hit"]]
 material_override = SubResource("ShaderMaterial_qi42u")
