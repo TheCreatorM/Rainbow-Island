@@ -14,10 +14,11 @@ const MAX_HEALTH = 50
 
 @onready var healthbar = $GUI/Panel/ProgressBar
 @onready var healthtxt = $GUI/Panel/ProgressBar/Label
+@onready var weaponhold = $WeaponHold
 
 var health = 0
 
-var sliding = false
+@export var sliding = false
 var dashing = false
 var dash_cooldown = 0.0
 
@@ -29,18 +30,9 @@ func _ready() -> void:
 	update_health()
 	
 func _process(delta: float) -> void:
-	# Update cooldown timers
-
 	dash_cooldown -= delta
-	
-	# Clamp cooldown timers
-
 	dash_cooldown = max(dash_cooldown, 0.0)
 
-	if Input.is_action_just_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-	# Shooting logic with cooldown
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -69,11 +61,18 @@ func _physics_process(delta: float) -> void:
 			dash_cooldown = COOLDOWN  # Start dash cooldown
 		sliding = true
 		cam.position.y = -0.2
+		weaponhold.translate(Vector3(0.5,0.5,0))
+		weaponhold.rotation_degrees.z = -45
 
-	if Input.is_action_just_released("crouch"):
+		
+
+	if not Input.is_action_pressed("crouch") and sliding:
 		if not dashing:
 			cam.position.y = 0.5
 		sliding = false
+
+		weaponhold.rotation_degrees.z = 0
+		weaponhold.translate(Vector3(-0.5,-0.5,0))
 
 	# Handle jump
 	if Input.is_action_pressed("jump") and is_on_floor():
@@ -88,6 +87,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z *= 0.95
 	elif Input.is_action_pressed("sprint"):
 		speed_mult *= 2
+		
 		
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 

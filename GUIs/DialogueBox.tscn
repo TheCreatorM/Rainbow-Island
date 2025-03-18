@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bcekj2gtd2emy"]
 
-[ext_resource type="Script" path="res://GUIs/dialogue_box.gd" id="1_iwkx0"]
+[ext_resource type="Script" uid="uid://rmbd54l3v1hw" path="res://GUIs/dialogue_box.gd" id="1_iwkx0"]
 [ext_resource type="FontFile" uid="uid://cxvunuhh3ye4u" path="res://assets/fonts/Alaqua.otf" id="2_nfw2l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkp48"]

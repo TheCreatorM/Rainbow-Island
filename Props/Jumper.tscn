@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://de53btide62j4"]
 
-[ext_resource type="Script" path="res://Props/jumper.gd" id="1_4dpv4"]
+[ext_resource type="Script" uid="uid://b6vs83tgo7vap" path="res://Props/jumper.gd" id="1_4dpv4"]
 [ext_resource type="Texture2D" uid="uid://b5x2mbh07xi0h" path="res://assets/props/Jumper_sprite_sheet.png" id="1_kpao2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkfox"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d4k650wsq4fn"]
 
 [ext_resource type="Texture2D" uid="uid://cj0ge1r1jh0lv" path="res://assets/weapons/stop.png" id="1_e3hw0"]
-[ext_resource type="Script" path="res://Weapons/stop_sign.gd" id="1_w5bdp"]
+[ext_resource type="Script" uid="uid://dq313c5nic6qc" path="res://Weapons/stop_sign.gd" id="1_w5bdp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l4bri"]
 atlas = ExtResource("1_e3hw0")

@@ -1,6 +1,5 @@
 extends Node3D
 
-
 @onready var crosshair = get_parent().get_node("GUI/Crosshair")
 var current_weapon: Node3D = null
 var t = 0.0  # Shooting cooldown
@@ -18,7 +17,7 @@ func _process(delta: float) -> void:
 		equip_weapon(weapon_index+1)
 	if Input.is_action_just_pressed("previous_weapon"):
 		equip_weapon(weapon_index-1)
-	if Input.is_action_pressed("attack") and t == 0.0:
+	if Input.is_action_pressed("attack") and t == 0.0 and not get_parent().sliding:
 		current_weapon.play()
 		
 		if current_weapon.is_ranged:

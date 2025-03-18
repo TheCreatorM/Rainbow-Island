@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4dhuhiqapoix"]
+
+[ext_resource type="Texture2D" uid="uid://xvpygxgn47rc" path="res://assets/textures/Brick_wall.png" id="1_h2tfy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2tfy"]
+albedo_texture = ExtResource("1_h2tfy")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_t2s4x"]
+material = SubResource("StandardMaterial3D_h2tfy")
+
+[sub_resource type="GDScript" id="GDScript_i0ye1"]
+script/source = "extends MeshInstance3D
+
+func _ready():
+	var mat = get_active_material(0)
+	if mat:
+		# Adjust UV scale per face to match object scale
+		mat.set_shader_parameter(\"uv_scale_xz\", Vector2(scale.x, scale.z)) # Front/Back
+		mat.set_shader_parameter(\"uv_scale_xy\", Vector2(scale.x, scale.y)) # Top/Bottom
+		mat.set_shader_parameter(\"uv_scale_yz\", Vector2(scale.y, scale.z)) # Sides
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mhlj"]
+
+[node name="Wall" type="MeshInstance3D" groups=["block"]]
+mesh = SubResource("BoxMesh_t2s4x")
+script = SubResource("GDScript_i0ye1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_8mhlj")
